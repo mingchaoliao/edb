@@ -10,6 +10,7 @@
 
 <div class="row">
     <div class="col-12">
+       <!-- Add instructions -->
         {{ Form::open(['route' => 'import.upload', 'files' => 'true']) }}
             {{ Form::file('importFile', ['id' => 'importFile']) }}
             {{Form::submit('Upload')}}

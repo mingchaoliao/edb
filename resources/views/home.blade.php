@@ -8,6 +8,21 @@
 @endsection
 @section('content')
 
+        <!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Ethnobotanical Database</h1>
+
+        <p>The ethnobotanical database was created
+            for the Myaamia Center to display, search, enter, and update
+            information regarding plants and their uses.</p>
+
+
+</body>
+</html>
 
 
 
