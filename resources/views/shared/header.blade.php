@@ -1,18 +1,21 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: #231F20 !important;">
+    <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">EDB</a>
+    <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0;">
+        <img src="{{asset('img/miami.png')}}" style="vertical-align: middle; height: 26px; margin-top: -7px;" alt=".">
+        EDB</a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
         <form class="form-inline mr-auto">
             <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search">
-            <a id="headerSearchBtn" class="btn btn-outline-success my-2 my-sm-0" href="#">Search</a>
+            <a id="headerSearchBtn" class="no-loading btn btn-outline-success my-2 my-sm-0" href="#">Search</a>
             <script>
                 $( document ).ready(function() {
                     $('#headerSearchBtn').click(function(e) {
                         e.preventDefault();
                         var q = $('#headerSearchBox').val();
                         if(!q) return;
+                        loading();
                         window.location.href = "{{route('search.result')}}?q=" + q;
                     });
                 });

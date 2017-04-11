@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-		$users = User::select('id', 'created_at', 'updated_at', 'email', 'name', 'is_miami', 'role_id')
+		$users = User::select('id', 'has_deleted', 'created_at', 'updated_at', 'email', 'name', 'is_miami', 'role_id')
 			->get();
 
 		$userRoles = [];
@@ -25,6 +25,18 @@ class UserController extends Controller
 			$userRoles[$role['id']] = $role['name'];
 		}
 		return view('user.index', ['users' => $users, 'userRoles' => $userRoles]);
+    }
+
+    /**
+     * Restore deleted user
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        User::findOrFail($id)->update(["has_deleted" => 0]);
+        return redirect(route('user.index'));
     }
 
 	/**
@@ -78,7 +90,7 @@ class UserController extends Controller
 	 */
 	public function destroy($id)
 	{
-		User::findOrFail($id)->delete();
+		User::findOrFail($id)->update(['has_deleted' => 1]);
 		return redirect(route('user.index'));
 	}
 }

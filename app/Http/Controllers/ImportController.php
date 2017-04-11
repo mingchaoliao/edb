@@ -28,11 +28,23 @@ class ImportController extends Controller
 	 */
 	public function upload(Request $request) {
 		$schemeArr = Scheme::get();
+		if(!$request->file('importFile')) {
+            return redirect()->back()
+                ->withErrors(['no_file' => 'No File Selected !']);
+        }
+        if(!in_array($request->file('importFile')->getClientOriginalExtension(), ['csv', 'xlsx'])) {
+            return redirect()->back()
+                ->withErrors(['invalid_format' => 'Invalid Format !']);
+        }
+		try {
+            $path = $request->file('importFile')->store('import');
+            $rows = Excel::selectSheetsByIndex(0)->load("storage/app/" . $path)->get();
 
-		$path = $request->file('importFile')->store('import');
-		$rows = Excel::selectSheetsByIndex(0)->load("storage/app/" . $path)->get();
-
-		return view('import.upload', ['schemeArr' => $schemeArr, 'rows' => $rows, 'path' => $path]);
+            return view('import.upload', ['schemeArr' => $schemeArr, 'rows' => $rows, 'path' => $path]);
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withErrors(['exception' => 'Unable to read file. Detail: ' . $e->getMessage()]);
+        }
 	}
 
 	/**
@@ -54,4 +66,22 @@ class ImportController extends Controller
 		}
 		return redirect(route('species.index'));
 	}
+
+    /**
+     * Create template file.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createTemplate($format) {
+        if(!in_array($format, ['csv', 'xlsx'])) {
+            die("invalid format");
+        }
+        $schemeArr = Scheme::all()->toArray();
+        Excel::create('EDB-DataImport-template', function($excel) use($schemeArr) {
+            $excel->sheet('EDB Data Import Template', function($sheet) use($schemeArr) {
+                $sheet->fromArray(array_map(function($scheme) { return $scheme['key']; }, $schemeArr));
+            });
+        })->download($format);
+
+    }
 }

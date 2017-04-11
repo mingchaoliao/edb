@@ -40,7 +40,7 @@
                 <td>{{$request->proceed_at}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Action Button Group">
-                        <a target="_blank" href="{{route('species.show', ['id' => $request->species_id])}}" class="btn btn-outline-primary">View</a>
+                        <a target="_blank" href="{{route('species.show', ['id' => $request->species_id])}}" class="no-loading btn btn-outline-primary">View</a>
 
                         @if($request->status != 'Approved')
                             <a href="#" class="btn btn-outline-success" onclick="event.preventDefault();

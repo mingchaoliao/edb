@@ -21,16 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->unsignedTinyInteger('has_deleted')->default(0);
+
             $table->rememberToken();
             $table->timestamps();
         });
 
-		User::create(['name' => 'Mingchao Liao', 'email' => 'liaom@miamioh.edu', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 1]);
-
-		User::create(['name' => 'Administrator', 'email' => 'administrator@charlesliao.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 1]);
-		User::create(['name' => 'Researcher', 'email' => 'researcher@charlesliao.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 2]);
-		User::create(['name' => 'Contributor', 'email' => 'contributor@charlesliao.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 3]);
-		User::create(['name' => 'Guest', 'email' => 'guest@charlesliao.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 4]);
+		User::create(['name' => 'Admin Don', 'email' => 'admin@fake.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 1]);
+		User::create(['name' => 'Contributor Oops', 'email' => 'oops.con@fake.com', 'password' => '$2y$10$KIFP0HlI4HBUxHeew3wZr.Fm/w/nOLkQ6yuwuG1BnAqfsy2CnaHri', 'role_id' => 3]);
 
 	}
 

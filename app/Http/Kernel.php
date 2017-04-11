@@ -61,6 +61,8 @@ class Kernel extends HttpKernel
 		'researcher' => \App\Http\Middleware\ResearcherMiddleware::class,
 		'contributor' => \App\Http\Middleware\ContributorMiddleware::class,
 
+        'preventDeletedUser' => \App\Http\Middleware\PreventDeletedUserMiddleware::class,
+
         'cas.auth' => \Subfission\Cas\Middleware\CASAuth::class,
         'cas.guest' => \Subfission\Cas\Middleware\RedirectCASAuthenticated::class,
     ];

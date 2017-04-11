@@ -34,6 +34,12 @@
     </script>
 </head>
 <body>
+    <div id="loading-screen" style="display: none; position: absolute; left: 0; top: 0; z-index: 2000; width: 100%; height: 100vh; background-color: #000000; opacity: 0.75;">
+        <div style="width: 150px; height: 150px; background-color: white; position: absolute; left: calc(50% - 75px); top: calc(45% - 75px); border-radius: 200px;">
+            <img src="{{ asset('img/loading.gif') }}" alt="loading" style="width: 100px; height: 76px; position: relative; left: calc(50% - 50px); top: calc(50% - 38px);">
+        </div>
+    </div>
+
     <form id="warning-box-form" action="{{route('warning.index')}}" method="POST" style="display: none;">
         <input type="hidden" name="data">
     </form>
@@ -48,6 +54,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('button:not(.no-loading), .btn:not(.no-loading), .loading').click(function(e) {
+                $('#loading-screen').show();
+            });
+        });
+
+        function loading() {
+            $('#loading-screen').show();
+        }
+    </script>
     @yield('js')
 </body>
 </html>

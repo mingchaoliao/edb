@@ -21,7 +21,11 @@
                 <div class="col-12">
                     <div class="form-group">
                         {{Form::label('name', 'Name')}}
-                        {{Form::text('name', Auth::user()->name, ['class' => 'form-control'])}}
+                        @if(Auth::user()->is_miami)
+                            {{Form::text('name', Auth::user()->name, ['class' => 'form-control', 'disabled' => 'disabled'])}}
+                        @else
+                            {{Form::text('name', Auth::user()->name, ['class' => 'form-control'])}}
+                        @endif
                     </div>
                 </div>
             </div>
