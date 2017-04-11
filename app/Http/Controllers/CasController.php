@@ -77,15 +77,12 @@ class CasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request) {
+        Auth::guard()->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
         if($this->cas->isAuthenticated()) {
             $this->cas->logout();
         } else {
-            Auth::guard()->logout();
-
-            $request->session()->flush();
-
-            $request->session()->regenerate();
-
             return redirect('/');
         }
     }
