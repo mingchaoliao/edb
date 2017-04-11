@@ -7,6 +7,16 @@
 
 @endsection
 @section('content')
+    <div class="row" style="margin-top: 25px;">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-12">
+            <a href="{{route('cas.index')}}" class="btn btn-block" style="background-color: #C8102E; color: white;">Miami Login</a>
+        </div>
+    </div>
+    <div class="row" style="padding: 40px;">
+        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-12" style="border-bottom: 2px solid #888888;">
+            <span style="position: absolute; left: calc(50% - 20px); top: calc(50% - 12px); background: white;">&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-12">
             <form role="form" method="POST" action="{{ route('register') }}">

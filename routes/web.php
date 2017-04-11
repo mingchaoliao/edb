@@ -39,8 +39,8 @@ Route::get('/species', 'SpeciesController@index')->name('species.index'); // Dis
 Route::post('/warning', 'WarningController@index')->name('warning.index'); // Display a warning message and let user make choice
 
 Auth::routes();
-Route::get('/login/cas', 'CasController@index')->name('cas.index'); // Handle Miami Cas
-
+Route::get('/cas/login', 'CasController@index')->name('cas.index'); // Handle Miami Cas login
+Route::get('/cas/logout', 'CasController@logout')->name('cas.logout'); // Handle Miami Cas logout
 
 Route::group(['middleware' => ['auth', 'researcher']], function () {
 	Route::get('/species/approval', 'ApprovalController@index')->name('species.approval'); // Display a listing of the species records which are needed to approve.

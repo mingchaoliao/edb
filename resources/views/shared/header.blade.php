@@ -52,11 +52,16 @@
                         @if(Auth::user()->role_id == 3)
                             <a class="dropdown-item" href="{{url('/request')}}">Request Result</a>
                         @endif
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+
+                        @if(app('cas')->isAuthenticated())
+                            <a class="dropdown-item" href="{{ route('cas.logout') }}"></a>
+                        @else
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
+                                Logout
+                            </a>
+                        @endif
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
