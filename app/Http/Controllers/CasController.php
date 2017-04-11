@@ -55,8 +55,8 @@ class CasController extends Controller
                 $user = User::create([
                     'role_id' => 4,
                     'is_miami' => 1,
-                    'name' => "unknown",
-                    'email' => $name,
+                    'name' => $name,
+                    'email' => $username,
                     'password' => Hash::make(str_random(16)),
                 ]);
             }
@@ -80,7 +80,13 @@ class CasController extends Controller
         if($this->cas->isAuthenticated()) {
             $this->cas->logout();
         } else {
-            redirect(route('home.index'));
+            Auth::guard()->logout();
+
+            $request->session()->flush();
+
+            $request->session()->regenerate();
+
+            return redirect('/');
         }
     }
 }

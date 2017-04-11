@@ -53,17 +53,13 @@
                             <a class="dropdown-item" href="{{url('/request')}}">Request Result</a>
                         @endif
 
-                        @if(app('cas')->isAuthenticated())
-                            <a class="dropdown-item" href="{{ route('cas.logout') }}"></a>
-                        @else
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-                        @endif
+                        <a class="dropdown-item" href="{{ route('cas.logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('cas.logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                     </div>

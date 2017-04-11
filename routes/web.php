@@ -40,7 +40,7 @@ Route::post('/warning', 'WarningController@index')->name('warning.index'); // Di
 
 Auth::routes();
 Route::get('/cas/login', 'CasController@index')->name('cas.index'); // Handle Miami Cas login
-Route::get('/cas/logout', 'CasController@logout')->name('cas.logout'); // Handle Miami Cas logout
+Route::post('/cas/logout', 'CasController@logout')->name('cas.logout'); // Handle Miami Cas logout
 
 Route::group(['middleware' => ['auth', 'researcher']], function () {
 	Route::get('/species/approval', 'ApprovalController@index')->name('species.approval'); // Display a listing of the species records which are needed to approve.
