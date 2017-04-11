@@ -81,7 +81,7 @@ class CasController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
         if($this->cas->isAuthenticated()) {
-            $this->cas->logout();
+            return redirect('/?cas=logout');
         } else {
             return redirect('/');
         }
