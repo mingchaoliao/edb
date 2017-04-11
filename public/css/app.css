@@ -24,3 +24,7 @@ body > .container {
     padding-left: 15px;
 }
 
+.btn {
+    cursor: pointer;
+}
+

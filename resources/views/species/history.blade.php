@@ -28,7 +28,18 @@
                     @if($species[$key] == null)
                         <td style="color: gray;">(empty)</td>
                     @else
-                        <td>{{$species[$key]}}</td>
+                        <td>
+                        @if($key == 'photo')
+                            <img src="{{UrlSigner::sign(url('file/'. $species[$key]), Carbon::now()->addSeconds(10))}}" alt="photo">
+                        @elseif($key == 'audio')
+                            <audio controls>
+                                <source src="{{UrlSigner::sign(url('file/'. $species[$key]), Carbon::now()->addSeconds(300))}}">
+                                Your browser does not support the audio tag.
+                            </audio>
+                        @else
+                            {{$species[$key]}}
+                        @endif
+                        </td>
                     @endif
                     <td>{{$species['name']}}</td>
                     <td>{{$species['created_at']}}</td>

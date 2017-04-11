@@ -10,6 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Intervention\Image\Facades\Image;
+
+Route::get('file/photo/{filename}', ['middleware' => ['signedurl'], function ($filename) {
+    return Image::make(storage_path('app/photo/' . $filename))->response();
+}]);
+
+Route::get('file/audio/{filename}', ['middleware' => ['signedurl'], function ($filename) {
+    $filename = storage_path('app/audio/' . $filename);
+    $filesize = (int) File::size($filename);
+    $extension = File::extension($filename);
+
+    $file = File::get($filename);
+
+    $response = Response::make($file, 200);
+    $response->header('Content-Type', 'audio/' . $extension);
+    $response->header('Content-Length', $filesize);
+    $response->header('Accept-Ranges', 'bytes');
+    $response->header('Content-Range', 'bytes 0-'.$filesize.'/'.$filesize);
+
+    return $response;
+}]);
+
 Route::get('/', 'HomeController@index')->name('home.index'); // Show the application home page.
 Route::get('/search', 'SearchController@result')->name('search.result'); // Display a list of search result
 Route::get('/search/advancedSearch', 'SearchController@index')->name('search.index'); // Show advanced search page

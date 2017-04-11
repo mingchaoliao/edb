@@ -1,14 +1,25 @@
 @extends('layouts.app')
 @section('title', 'Edit Species')
 @section('css')
-
+    <style>
+        .custom-file-control.selected:lang(en)::after {
+            content: "" !important;
+        }
+    </style>
 @endsection
 @section('js')
-
+    <script>
+        $(document).ready(function() {
+            $("input:file").change(function(e) {
+                var fileName = $(this).val();
+                $(this).next('.custom-file-control').addClass("selected").html(fileName);
+            });
+        });
+    </script>
 @endsection
 @section('content')
 
-    {{Form::open(['route' => ['species.update', $species->id]])}}
+    {{Form::open(['route' => ['species.update', $species->id], 'files' => true])}}
     <input type="hidden" name="_method" value="PUT">
     <div class="row">
         @foreach ($schemeArr as $scheme)
@@ -44,13 +55,23 @@
                         </div>
                     </div>
                 </div>
-            @elseif ($scheme->type == 'photo')
+            @elseif ($scheme->type == 'photo' || $scheme->type == 'audio')
                 <div class="col-md-6 col-xs-12">
 
-                </div>
-            @elseif ($scheme->type == 'audio')
-                <div class="col-md-6 col-xs-12">
+                    <div class="row">
+                        <div class="col-12">
+                            {{Form::label($scheme->key, $scheme->displayed_name)}}
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="custom-file">
+                                {{Form::file($scheme->key, ['class' => 'custom-file-input'])}}
+                                <span class="custom-file-control"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             @else
 

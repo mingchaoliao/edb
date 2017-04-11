@@ -180,6 +180,10 @@ return [
 		Maatwebsite\Excel\ExcelServiceProvider::class,
 		TomLingham\Searchy\SearchyServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
+        Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Subfission\Cas\CasServiceProvider::class,
 
     ],
 
@@ -232,7 +236,11 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-		'Searchy' => TomLingham\Searchy\Facades\Searchy::class
+		'Searchy' => TomLingham\Searchy\Facades\Searchy::class,
+        'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Carbon' => \Carbon\Carbon::class,
+        'Cas' => Subfission\Cas\Facades\Cas::class,
 
     ],
 

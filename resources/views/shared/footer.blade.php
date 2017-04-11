@@ -1,5 +1,9 @@
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">&copy; 2016 Myaamia Center | 200 Bonham House | Miami University | Oxford, OH | 45056 | 513-529-5648</span>
+        <div class="row">
+            <div class="col-12" style="text-align: center; color: grey;">
+                &copy; 2016 Myaamia Center &middot; 200 Bonham House &middot; Miami University &middot; Oxford &middot; OH &middot; 45056 &middot; 513-529-5648
+            </div>
+        </div>
     </div>
 </footer>

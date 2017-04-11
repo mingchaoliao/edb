@@ -65,11 +65,43 @@
                 </div>
             @elseif ($scheme->type == 'photo')
                 <div class="viewBlock col-md-6 col-xs-12">
+                    <div class="row">
+                        <strong>{{$scheme->name}}:</strong>
+                        <span style="position: absolute; top: 0; right: 18px;">
+                            <a href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-12" style="padding: 15px;">
+                            @if($photoUrl)
+                                <img src="{{$photoUrl}}" alt="photo">
+                            @else
+                                No Photo !
+                            @endif
+                        </div>
+                    </div>
 
                 </div>
             @elseif ($scheme->type == 'audio')
                 <div class="viewBlock col-md-6 col-xs-12">
-
+                    <div class="row">
+                        <strong>{{$scheme->name}}:</strong>
+                        <span style="position: absolute; top: 0; right: 18px;">
+                            <a href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            @if($audioUrl)
+                                <audio controls>
+                                    <source src="{{$audioUrl}}">
+                                    Your browser does not support the audio tag.
+                                </audio>
+                            @else
+                                No Audio !
+                            @endif
+                        </div>
+                    </div>
                 </div>
             @else
 

@@ -13,7 +13,7 @@
     <div class="col-12">
         {{ Form::open(['route' => 'import.process']) }}
             <input type="hidden" name="path" value="{{$path}}">
-            <a href="" class="btn btn-outline-secondary">Choose Another File</a>
+            <a href="{{route('import.index')}}" class="btn btn-outline-secondary">Choose Another File</a>
             {{ Form::submit('Start Import', ['class' => 'btn btn-outline-primary']) }}
         {{ Form::close() }}
     </div>

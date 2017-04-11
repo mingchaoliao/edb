@@ -24,6 +24,12 @@
                 </div>
             </div>
         @endforeach
+        @if(!count($speciesArr))
+            No Species Found !
+            @if(!Auth::guest() && Auth::user()->role_id == 1)
+                You can (<a href="{{route('import.index')}}">import species</a>) from csv/excel file
+            @endif
+        @endif
 
     </div>
 
