@@ -120,7 +120,7 @@ DUMP_BINARY_PATH=<path of directory which contains binay file: mysqldump, in ubu
 php artisan migrate
 ```
 
-<p style="color: #B61E2E;">note: after executing this command, a default super administrator account have been created.</p>
+note: after executing this command, a default super administrator account have been created.
 
  - email: `admin@localhost`
  - password: same as value of `APP_KEY` in `.env` file
@@ -152,28 +152,28 @@ ln -s /path/to/edb-src/public /path/to/application_name
 
 ## Database Management
 
-<p style="color: yellow;">Warning: modifying raw databse is not recommended. Modifying ONLY when necessary !</p>
+Warning: modifying raw databse is not recommended. Modifying ONLY when necessary !
 
 #### Tables
 
  - `migrations`: used to manage table migrations
-   - <p style="color: red;">DANGER: DO NOT MODIFY THIS TABLE !</p>
+   - DANGER: DO NOT MODIFY THIS TABLE !
  - password_resets
    - used to reset user password
-   - <p style="color: yellow;">Note: this table is currently not being used</p>
-   - <p style="color: red;">DANGER: DO NOT MODIFY THIS TABLE !</p>
+   - Note: this table is currently not being used
+   - DANGER: DO NOT MODIFY THIS TABLE !
  - `requests`: store creation/modification requests (requested by contributors) which need administrators/researchers to approve/deny
  - `roles`: store user roles
    - 1 -> administrator
    - 2 -> researcher
    - 3 -> contributor
    - 4 -> guest
-   - <p style="color: red;">DANGER: DO NOT MODIFY THIS TABLE !</p>
+   - DANGER: DO NOT MODIFY THIS TABLE !
  - `schemes`: store schema of species 
-   - <p style="color: red;">DANGER: DO NOT MODIFY THIS TABLE !</p>
+   - DANGER: DO NOT MODIFY THIS TABLE !
  - `species`: store species data (with version)
  - `users`: store user information
-   - <p style="color: yellow;">Warning: Do not delete user. Instead, changing has_deleted to 1</p>
+   - Warning: Do not delete user. Instead, changing has_deleted to 1
    
 ## Miami SSO (CAS)
 

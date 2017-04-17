@@ -29,7 +29,7 @@
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        actions
+                        Actions
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarActionsLink">
                         <a class="dropdown-item" href="{{url('/species/create')}}">Add Species</a>
@@ -42,6 +42,19 @@
                     </div>
                 </li>
             @endif
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDocsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Docs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDocsLink">
+                    <a class="dropdown-item disabled" href="#">User Document</a>
+                    @if(!Auth::guest() && Auth::user()->role_id == 1)
+                    <a class="dropdown-item" href="{{route('docs.admin')}}">Admin Document</a>
+                    @endif
+                </div>
+            </li>
+
             @if (Auth::guest())
                 <li class="nav-item"><a class="nav-link" href="{{url('/login')}}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
@@ -71,6 +84,6 @@
         </ul>
 
     </div>
-    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 10px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 20px;"></div>
+    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 10px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 20px;" id="headerSepBar"></div>
 
 </nav>

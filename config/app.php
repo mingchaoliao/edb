@@ -184,6 +184,7 @@ return [
         Spatie\UrlSigner\Laravel\UrlSignerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Subfission\Cas\CasServiceProvider::class,
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
     ],
 
@@ -241,6 +242,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Carbon' => \Carbon\Carbon::class,
         'Cas' => Subfission\Cas\Facades\Cas::class,
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],
 

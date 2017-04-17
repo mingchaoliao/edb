@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth', 'administrator', 'preventDeletedUser']], 
     Route::get('/backup', 'BackupController@index')->name('backup.index'); // Display page for backup.
 	Route::post('/backup', 'BackupController@store')->name('backup.store'); // Create new backup file.
 	Route::delete('/backup', 'BackupController@destroy')->name('backup.destroy'); // Clean up old backup files depend on rules.
-
+    Route::get('/docs/admin', function() { return view('docs.admin'); })->name('docs.admin'); // documentation for admin
 });
 
 
