@@ -14,7 +14,7 @@
     </div>
     <div class="row" style="padding: 40px;">
         <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-12" style="border-bottom: 2px solid #888888;">
-            <span style="position: absolute; left: calc(50% - 20px); top: calc(50% - 12px); background: white;">&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;</span>
+            <span style="position: absolute; left: calc(50% - 20px); top: calc(50% - 12px); background: black;">&nbsp;&nbsp;&nbsp;OR&nbsp;&nbsp;&nbsp;</span>
         </div>
     </div>
     <div class="row">

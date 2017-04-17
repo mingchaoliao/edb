@@ -16,6 +16,10 @@ Route::get('file/photo/{filename}', ['middleware' => ['signedurl'], function ($f
     return Image::make(storage_path('app/photo/' . $filename))->response();
 }]);
 
+Route::get('password/reset2', function() {
+    return view('auth.passwords.reset2');
+})->middleware('guest')->name('password.request2');
+
 Route::get('file/audio/{filename}', ['middleware' => ['signedurl'], function ($filename) {
     $filename = storage_path('app/audio/' . $filename);
     $filesize = (int) File::size($filename);

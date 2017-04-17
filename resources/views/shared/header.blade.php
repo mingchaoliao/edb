@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: #231F20 !important;">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: black !important;">
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,4 +71,6 @@
         </ul>
 
     </div>
+    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 10px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 20px;"></div>
+
 </nav>

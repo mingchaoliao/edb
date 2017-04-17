@@ -58,8 +58,20 @@ class UserController extends Controller
 	public function update(Request $request)
 	{
 		$data = $request->all();
-
 		User::find(Auth::user()->id)->update(['name' => $data['name']]);
+
+		if($data['oldPassword'] != '') {
+		    if($data['password'] == '') {
+                return redirect()->back()
+                    ->with('password', 'new password cannot be empty');
+            }
+		    if(Hash::check($data['oldPassword'], Auth::user()->password)) {
+                User::find(Auth::user()->id)->update(['password' => Hash::make($data['password'])]);
+            } else {
+                return redirect()->back()
+                    ->with('oldPassword', 'old password is incorrect');
+            }
+        }
 
 		return redirect(route('home.index'));
 	}

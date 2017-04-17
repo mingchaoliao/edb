@@ -30,6 +30,34 @@
                 </div>
             </div>
         </div>
+        @if(!Auth::user()->is_miami)
+            <div class="col-lg-5 offset-lg-2 col-xs-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            {{Form::label('oldPassword', 'Old Password')}}
+                            {{Form::password('oldPassword', ['class' => 'form-control'])}}
+                            @if (session()->has('oldPassword'))
+                                <span class="help-block">
+                                    <strong>{{ session('oldPassword') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            {{Form::label('password', 'New Password')}}
+                            {{Form::password('password', ['class' => 'form-control'])}}
+                            @if (session()->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ session('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
 
 
         <div class="col-12">
