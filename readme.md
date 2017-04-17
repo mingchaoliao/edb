@@ -10,8 +10,11 @@ The ethnobotanical database is for the Myaamia Center and research community. Th
 ## Contributors
 
 Mingchao Liao ([liaom@miamioh.edu](mailto:liaom@miamioh.edu))
+
 Joshua Dooley ([dooleyj5@miamioh.edu](mailto:dooleyj5@miamioh.edu))
+
 Meghan Styczynski ([styczymr@miamioh.edu](mailto:styczymr@miamioh.edu))
+
 Richard Bodziak ([bodziarr@miamioh.edu](mailto:bodziarr@miamioh.edu))
 
 ## License
