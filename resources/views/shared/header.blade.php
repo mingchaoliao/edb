@@ -48,6 +48,7 @@
                     Docs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDocsLink">
+                    <a class="dropdown-item" href="{{route('docs.index')}}">About</a>
                     <a class="dropdown-item disabled" href="#">User Document</a>
                     @if(!Auth::guest() && Auth::user()->role_id == 1)
                     <a class="dropdown-item" href="{{route('docs.admin')}}">Admin Document</a>

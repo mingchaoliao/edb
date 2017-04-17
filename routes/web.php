@@ -15,6 +15,7 @@ use Intervention\Image\Facades\Image;
 Route::get('file/photo/{filename}', ['middleware' => ['signedurl'], function ($filename) {
     return Image::make(storage_path('app/photo/' . $filename))->response();
 }]);
+Route::get('/docs', function() { return view('docs.index'); })->name('docs.index'); // documentation home page
 
 Route::get('password/reset2', function() {
     return view('auth.passwords.reset2');

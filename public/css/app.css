@@ -1,5 +1,6 @@
 html *:not(code) {
     color: antiquewhite;
+    font-family: 'Raleway', sans-serif;
 }
 
 html {
