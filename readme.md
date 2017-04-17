@@ -6,6 +6,9 @@ The ethnobotanical database is for the Myaamia Center and research community. Th
 
 ## Documentation
 
+For Administrators
+
+For Users
 
 ## Contributors
 
