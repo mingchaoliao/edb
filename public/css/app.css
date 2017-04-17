@@ -33,8 +33,36 @@ body > .container {
     cursor: pointer;
 }
 
-
 .error, .help-block > strong, .help-block {
     color: #C8102E;
 }
 
+input, textarea {
+    background-color: black !important;
+    color: antiquewhite !important;
+    border: 1px solid antiquewhite !important;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-menu > a {
+    color: antiquewhite;
+}
+
+.dropdown-menu > a:hover {
+    background-color: black;
+    color: antiquewhite;
+    opacity: 0.5;
+}
+
+.custom-file-control {
+    background-color: black;
+    border: 1px solid antiquewhite;
+}
+
+.custom-file-control:before {
+    background-color: black;
+    border: 1px solid antiquewhite;
+}

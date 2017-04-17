@@ -31,7 +31,7 @@
         <tbody>
         @foreach ($users as $user)
             @if($user->has_deleted)
-                <tr style="background-color: #DDDDDD;">
+                <tr style="opacity: 0.5;">
             @else
                 <tr>
             @endif
@@ -43,7 +43,7 @@
                     @if($user->has_deleted)
                         {{$userRoles[$user->role_id]}}
                     @else
-                        {{Form::select('role_id', $userRoles, $user->role_id, ['class' => 'user_role_id'])}}
+                        {{Form::select('role_id', $userRoles, $user->role_id, ['class' => 'user_role_id', 'style' => 'background-color: black;'])}}
                     @endif
                 </td>
                 <td>
