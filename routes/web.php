@@ -68,13 +68,15 @@ Route::group(['middleware' => ['auth', 'contributor', 'preventDeletedUser']], fu
 Route::get('/species/{id}', 'SpeciesController@show')->name('species.show'); // Display the specified species by id.
 
 Route::group(['middleware' => ['auth', 'preventDeletedUser']], function () {
-	Route::get('/user/edit', 'UserController@edit')->name('user.edit'); // Show the form for editing user profile.
-	Route::put('/user', 'UserController@update')->name('user.update'); // Update the user profile.
+	Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit'); // Show the form for editing user profile.
+	Route::put('/user/{id}', 'UserController@update')->name('user.update'); // Update the user profile.
 
 });
 
 Route::group(['middleware' => ['auth', 'administrator', 'preventDeletedUser']], function () {
 	Route::get('/user', 'UserController@index')->name('user.index'); // Display a listing of the users.
+    Route::get('/user/create', 'UserController@create')->name('user.create'); // Display a page for administrators to create user
+    Route::post('/user', 'UserController@store')->name('user.store'); // Store a newly created user in users table.
     Route::put('/user/{id}/editRole', 'UserController@updateRole')->name('user.update.role'); // Update role for specified user
 	Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy'); // Remove the specified user from users table.
     Route::get('/user/restore/{id}', 'UserController@restore')->name('user.restore'); // Restore deleted user

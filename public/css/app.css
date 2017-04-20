@@ -122,3 +122,9 @@ input[type='radio'][value='TRUE']:checked:before {
 input[type='radio'][value='FALSE']:checked:before {
     background:#B61E2E;
 }
+
+select {
+    border: 1px solid antiquewhite !important;
+    background-color: black !important;
+    color: antiquewhite !important;
+}
