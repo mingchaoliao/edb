@@ -11,6 +11,7 @@
         <thead>
         <tr>
             <th>Request ID</th>
+            <th>Species Name</th>
             <th>Request By</th>
             <th>Request Type</th>
             <th>Request Item ID</th>
@@ -27,6 +28,7 @@
         @foreach ($requests as $request)
             <tr>
                 <th scope="row">{{$request->id}}</th>
+                <td>{{$request->species_name}}</td>
                 <td>{{$request->requested_by}}</td>
                 <td>{{$request->type}}</td>
                 <td>{{$request->species_id}}</td>
@@ -44,18 +46,18 @@
 
                         @if($request->status != 'Approved')
                             <a href="#" class="btn btn-outline-success" onclick="event.preventDefault();
-document.getElementById('approval-approve-form').submit();">Approve</a>
+document.getElementById('approval-approve-form-{{$request->id}}').submit();">Approve</a>
                         @endif
 
-                        <form id="approval-approve-form" action="{{route('species.approval.approve', ['id' => $request->id])}}" method="POST" style="display: none;">
+                        <form id="approval-approve-form-{{$request->id}}" action="{{route('species.approval.approve', ['id' => $request->id])}}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
 
                         @if($request->status != 'Denied')
                             <a href="#" class="btn btn-outline-danger" onclick="event.preventDefault();
-document.getElementById('approval-deny-form').submit();">Deny</a>
+document.getElementById('approval-deny-form-{{$request->id}}').submit();">Deny</a>
                         @endif
-                        <form id="approval-deny-form" action="{{route('species.approval.deny', ['id' => $request->id])}}" method="POST" style="display: none;">
+                        <form id="approval-deny-form-{{$request->id}}" action="{{route('species.approval.deny', ['id' => $request->id])}}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                     </div>

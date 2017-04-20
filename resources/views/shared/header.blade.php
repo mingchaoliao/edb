@@ -7,8 +7,22 @@
         EDB</a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
         <form class="form-inline mr-auto">
-            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search">
-            <a id="headerSearchBtn" class="no-loading btn btn-outline-success my-2 my-sm-0" href="#">Search</a>
+            <style>
+                #headerSearchBtn > i {
+                    color: #5cb85c;
+                }
+                #headerSearchBtn:hover > i {
+                    color: antiquewhite;
+                }
+
+                #headerSearchBox {
+                    background-color: black !important;
+                    color: antiquewhite !important;
+                    border: 1px solid #5cb85c !important;
+                }
+            </style>
+            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search By Species">
+            <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-success my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
             <script>
                 $( document ).ready(function() {
                     $('#headerSearchBtn').click(function(e) {
@@ -20,12 +34,13 @@
                     });
                 });
             </script>
-            <a class="btn btn-outline-success my-2 my-sm-0" href="{{route('search.index')}}" style="margin-left: 8px;">Advanced Search</a>
+            {{--<a class="btn btn-outline-success my-2 my-sm-0" href="{{route('search.index')}}" style="margin-left: 8px;">Advanced Search</a>--}}
         </form>
 
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{url('/species')}}">All Species</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('home.index')}}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('search.index')}}">Advanced Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('species.index')}}">All Species</a></li>
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +48,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarActionsLink">
                         <a class="dropdown-item" href="{{url('/species/create')}}">Add Species</a>
-                        <a class="dropdown-item" href="{{url('/species/approval')}}">Approval Page</a>
+                        @if(in_array(Auth::user()->role_id, [1, 2]))
+                            <a class="dropdown-item" href="{{url('/species/approval')}}">Approval Page</a>
+                        @endif
                         @if(Auth::user()->role_id == 1)
                             <a class="dropdown-item" href="{{url('/user')}}">User Management</a>
                             <a class="dropdown-item" href="{{url('/import')}}">Data Import</a>
@@ -85,6 +102,6 @@
         </ul>
 
     </div>
-    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 10px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 20px;" id="headerSepBar"></div>
+    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 20px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 40px;" id="headerSepBar"></div>
 
 </nav>

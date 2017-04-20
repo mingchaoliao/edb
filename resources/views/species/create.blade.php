@@ -49,7 +49,7 @@
                                 Yes
                                 {{Form::radio($scheme->key, 'TRUE')}}
                                 No
-                                {{Form::radio($scheme->key, 'FALSE')}}
+                                {{Form::radio($scheme->key, 'FALSE', true)}}
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
             @endif
         @endforeach
     </div>
-    {{Form::submit('Submit', ['class' => 'btn btn-default', 'style' => 'cursor: pointer;'])}}
+    {{Form::submit('Submit', ['class' => 'btn btn-primary', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}
 
 @endsection

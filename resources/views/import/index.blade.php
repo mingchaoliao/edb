@@ -24,8 +24,8 @@
         <ol>
             <li>Download template file
                 <ul>
-                    <li><a href="{{route('import.createTemplate', ['format' => 'csv'])}}"><i class="fa fa-download" aria-hidden="true"></i> CSV Format (.csv)</a></li>
-                    <li><a href="{{route('import.createTemplate', ['format' => 'xlsx'])}}"><i class="fa fa-download" aria-hidden="true"></i> Excel Format (.xlsx)</a></li>
+                    <li><a href="{{route('import.createTemplate', ['format' => 'csv'])}}" style="color: #0275d8;"><i class="fa fa-download" aria-hidden="true"></i> CSV Format (.csv)</a></li>
+                    <li><a href="{{route('import.createTemplate', ['format' => 'xlsx'])}}" style="color: #0275d8;"><i class="fa fa-download" aria-hidden="true"></i> Excel Format (.xlsx)</a></li>
                 </ul>
             </li>
             <li>Fill data into template file

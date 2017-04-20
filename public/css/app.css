@@ -22,7 +22,7 @@ body {
 }
 
 body > .container {
-    padding: 90px 15px 0;
+    padding: 100px 15px 0;
 }
 
 .footer > .container {
@@ -38,7 +38,7 @@ body > .container {
     color: #C8102E;
 }
 
-input, textarea {
+input:not(.btn), textarea {
     background-color: black !important;
     color: antiquewhite !important;
     border: 1px solid antiquewhite !important;
@@ -65,7 +65,16 @@ input, textarea {
 
 .custom-file-control:before {
     background-color: black;
+    color: antiquewhite;
     border: 1px solid antiquewhite;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+
+.custom-file:hover > span:before {
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    background-color: #0275d8;
 }
 
 pre {
@@ -76,8 +85,40 @@ pre {
     border: 1px solid antiquewhite;
 }
 
-@media(max-width: 1070px) and (min-width: 992px)  {
+@media(max-width: 1090px) and (min-width: 992px)  {
     #headerSearchBox {
-        width: 140px;
+        width: 163px;
     }
+}
+
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+    box-shadow:0 0 5px 0px gray inset;
+}
+
+input[type='radio']:hover {
+
+}
+
+input[type='radio']:before {
+    content:'';
+    display:block;
+    width:60%;
+    height:60%;
+    margin: 20% auto;
+    border-radius:50%;
+}
+input[type='radio']:checked:before {
+    background:antiquewhite;
+}
+input[type='radio'][value='TRUE']:checked:before {
+    background:#5cb85c;
+}
+input[type='radio'][value='FALSE']:checked:before {
+    background:#B61E2E;
 }

@@ -23,12 +23,14 @@ class ApprovalController extends Controller
 			users1.name as requested_by,
 			requests.type,
 			species_id,
+			species_name,
 			users2.name as proceed_by,
 			requests.created_at,
 			requests.updated_at,
 			requests.proceed_at,
 			requests.status
 		from requests
+		join species on species_id = species.id
 		join users users1 on users1.id = requests.user_id
 		left join users users2 on users2.id = requests.proceed_user_id
     	");
@@ -45,8 +47,7 @@ class ApprovalController extends Controller
      */
     public function approve(Request $request, $id)
     {
-
-		\App\Request::find($id)->update([
+		\App\Request::findOrFail($id)->update([
 			'status' => 'Approved',
 			'proceed_at' => Carbon::now(),
 			'proceed_user_id' => Auth::user()->id,

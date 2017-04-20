@@ -54,7 +54,7 @@
                                 Yes
                                 {{Form::radio($scheme->key, 'TRUE')}}
                                 No
-                                {{Form::radio($scheme->key, 'FALSE')}}
+                                {{Form::radio($scheme->key, 'FALSE', false)}}
                             </div>
                         </div>
                     </div>

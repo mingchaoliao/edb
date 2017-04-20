@@ -65,7 +65,7 @@
                         </span>
                     </div>
                     <div class="row">
-                        <div class="col-12" style="height: 27px; overflow-x: auto;">
+                        <div class="col-12" style="min-height: 27px;">
                             {{$species->getAttribute($scheme->key)}}
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                     <div class="row">
                         <div class="col-12" style="padding: 15px;">
                             @if($photoUrl)
-                                <img src="{{$photoUrl}}" alt="photo">
+                                <a href="{{$photoUrl}}" target="_blank"><img src="{{$photoUrl}}" alt="photo" style="width: 100%;"></a>
                             @else
                                 No Photo !
                             @endif
