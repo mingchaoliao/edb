@@ -46,7 +46,7 @@ class admin extends Command
             echo 'email cannot be empty';
         } elseif($password == '') {
             echo 'password cannot be empty';
-        } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) && $email != 'admin@localhost') {
             echo 'invalid email';
         } elseif(!count(User::where(['email' => $email])->get()->toArray())) {
             echo 'user does not exist';
