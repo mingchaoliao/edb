@@ -43,19 +43,19 @@ class admin extends Command
         $password = $this->argument('password');
 
         if($email == '') {
-            echo 'email cannot be empty';
+            echo 'email cannot be empty\r\n';
         } elseif($password == '') {
-            echo 'password cannot be empty';
+            echo 'password cannot be empty\r\n';
         } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) && $email != 'admin@localhost') {
-            echo 'invalid email';
+            echo 'invalid email\r\n';
         } elseif(!count(User::where(['email' => $email])->get()->toArray())) {
-            echo 'user does not exist';
+            echo 'user does not exist\r\n';
         } elseif(User::where(['email' => $email])->get()->toArray()[0]['role_id'] != 1) {
-            echo 'this user is not administrator. this command is used to reset administrator\'s password only';
+            echo 'this user is not administrator. this command is used to reset administrator\'s password only\r\n';
         } else {
             $id = User::where(['email' => $email])->get()->toArray()[0]['id'];
             User::find($id)->update(['password' => Hash::make($password)]);
-            echo "password reset successfully";
+            echo "password reset successfully\r\n";
         }
     }
 }
