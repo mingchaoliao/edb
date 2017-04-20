@@ -87,7 +87,7 @@ class SpeciesController extends Controller
         }
 
         Species::createWithCurrentUser($data);
-        return view('home');
+        return redirect(route('species.index'));
     }
 
     /**
