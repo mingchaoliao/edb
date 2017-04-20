@@ -175,6 +175,7 @@ Warning: modifying raw databse is not recommended. Modifying ONLY when necessary
  - `users`: store user information
    - Warning: Do not delete user. Instead, changing has_deleted to 1
    
+   
 ## Miami SSO (CAS)
 
 Any **https** service with a domain name ending in **muohio.edu** or **miamioh.edu** can use CAS for single-sign on without further configuration on the CAS server.  If the service is not https/muohio/miamioh, needs to be forced to use two-factor authentication, or needs other attributes besides username, it must be added to CAS Service Management by one of following IT people:
