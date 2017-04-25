@@ -179,7 +179,8 @@ class SpeciesController extends Controller
      */
     public function destroy($id)
     {
-        $species = Species::find($id)->select('oid')->first();
+        $species = Species::findOrFail($id);
+
         Species::where(['oid' => $species->oid])->delete();
         return redirect(route('species.index'));
     }
