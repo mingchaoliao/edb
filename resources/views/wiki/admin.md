@@ -175,24 +175,28 @@ Warning: modifying raw databse is not recommended. Modifying ONLY when necessary
  - `users`: store user information
    - Warning: Do not delete user. Instead, changing has_deleted to 1
    
-## Feature List
+## Frequently Asked Questions
 
- - Login Required
- - User can view all species and view all unapproved species
- - User can use the Search bar to Search by Species Name
- - User can use the Advanced Search to Search by other fields
- - User can create new species by clicking “Actions”, and click “Add Species” (the new species will not be approved)
- - User can delete species without approval
- - User can view the history of each field by clicking “Show History Buttons”, and click the history button icon that appears next to each field
- - User can view changes to species made by Contributor by clicking “Actions” and click “Approval Page” and click “View”
- - User can approve changes to species made by Contributor by clicking “Actions” and click “Approval Page” and click “Approve”
- - User can deny changes to species made by Contributor by clicking “Actions” and click “Approval Page” and click “Deny”
- - User can edit their name, email, and password by clicking on their name in the top right corner, and click “Profile”
- - User can change name, password and security role for each user by clicking “Actions” and click “User Management” and click "Edit" button for a specific user, or click “Delete” to soft remove that user
- - User can import data by clicking “Actions” and click “Data Import” and upload a file using the instructions on the page
- - User can backup data by clicking “Actions” and click “Backup” and click “Create New Backup”
- - User can view an Administrator Document by clicking “Docs” and click “Admin Document”
-   
-## Miami SSO (CAS)
+### How to change security roles for a user?
 
-Any **https** service with a domain name ending in **muohio.edu** or **miamioh.edu** can use CAS for single-sign on without further configuration on the CAS server.  If the service is not https/miamioh, Please contact university IT for help.
+Click “Actions” in the navigation bar and click “User Management” and click “Edit” under the action column next to the specific user.  Click the “Role” drop down and change the drop down value.  Then click “Update”.
+
+### How to delete a user?
+
+Click “Actions” in the navigation bar and click “User Management” and click “Delete” under the action column next to the specific user.  Then click “Deactivate”.  
+
+### How to restore a user?
+
+Click “Actions” in the navigation bar and click “User Management” and click “Restore” under the action column next to the specific user.
+
+### How to create a user with a specific role?
+
+Click “Actions” in the navigation bar and click “User Management” and click “Create User”.  Enter the name, email address, password, and click the “Role” drop down to choose the user’s role.  Then click “Add User”.
+
+### How to import data?
+
+Click “Actions” on the navigation bar and click “Data Import” and upload a file using the instructions on the page.
+
+### How to back up data?
+
+Click “Actions” on the navigation bar and click “Backup” and click “Create New Backup”.

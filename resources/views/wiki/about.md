@@ -8,7 +8,7 @@ The ethnobotanical database is for the Myaamia Center and research community. Th
 
 [For Administrators](docs/admin)
 
-For Users
+[For Users](docs/user)
 
 ## Contributors
 
